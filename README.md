@@ -1,16 +1,46 @@
-# fluram
+<a name="readme-top"></a>
 
-A new Flutter project.
 
-## Getting Started
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a>
+    <img src="android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Logo" ">
+  </a>
 
-This project is a starting point for a Flutter application.
+  <h3 align="center">FluRaM</h3>
 
-A few resources to get you started if this is your first Flutter project:
+  <p align="center">
+    An app that show the characters list of the TV Animated Series Rick & Morty
+  </p>
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+    <ul>
+        <li><a href="#built-with">Built With</a></li>
+    </ul>
+</details>
+
+<!-- [![Main Screen][product-screenshot]](https://rickandmortyapi.com) -->
+
+### Built With
+- ![Flutter][Flutter]
+- ![RiverPod][RiverPod]
+- ![Freezed][Freezed]
+- ![Dio][Dio]
+- ![Dart][Dart]
+  
+<p align="right"><a href="#readme-top">Back to top</a></p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[product-screenshot]: product_screenshot.png
+[Flutter]: https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white
+[Freezed]: https://img.shields.io/pub/v/freezed.svg
+[RiverPod]: https://img.shields.io/pub/v/riverpod.svg?label=riverpod&color=blue
+[Dio]: https://img.shields.io/pub/v/dio.svg?label=dev&include_prereleases
+[Dart]: https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white
