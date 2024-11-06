@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fluram/app/app_constants.dart';
+import 'package:fluram/core/app/app_constants.dart';
 
 class DioClient {
   DioClient._();
