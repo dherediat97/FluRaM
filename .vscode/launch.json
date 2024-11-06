@@ -20,6 +20,13 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
-        }
+        },
+        {
+            "name": "FluRaM (web)",
+            "request": "launch",
+            "flutterMode": "debug",
+            "type": "dart",
+            "args": ["--web-port", "5050"]
+        },
     ]
 }

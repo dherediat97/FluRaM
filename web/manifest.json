@@ -1,11 +1,11 @@
 {
-    "name": "fluram",
-    "short_name": "fluram",
+    "name": "FluRaM",
+    "short_name": "FluRaM",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#000",
     "theme_color": "#000",
-    "description": "A new Flutter project.",
+    "description": "Rick & Morty Fan App",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
