@@ -6,7 +6,7 @@ class AppProvider extends StateNotifier<bool> {
 
   Future _init() async {
     prefs = await SharedPreferences.getInstance();
-    var darkMode = prefs.getBool("darkMode");
+    var darkMode = prefs.getBool("isDarkMode");
     state = darkMode ?? false;
   }
 
@@ -16,7 +16,7 @@ class AppProvider extends StateNotifier<bool> {
 
   void toggle() async {
     state = !state;
-    prefs.setBool("darkMode", state);
+    prefs.setBool("isDarkMode", state);
   }
 }
 

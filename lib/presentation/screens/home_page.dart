@@ -12,6 +12,8 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        surfaceTintColor: Theme.of(context).colorScheme.surfaceTint,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -26,7 +28,6 @@ class HomePage extends ConsumerWidget {
             ),
           )
         ],
-        backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(
           'FluRaM',
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
@@ -39,7 +40,10 @@ class HomePage extends ConsumerWidget {
         child: const Icon(Icons.search),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).colorScheme.onPrimary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        elevation: 50,
+        unselectedItemColor: Theme.of(context).colorScheme.onPrimary,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         items: const [
           BottomNavigationBarItem(
             tooltip: "Episodios",
