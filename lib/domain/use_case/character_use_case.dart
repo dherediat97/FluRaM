@@ -1,8 +1,8 @@
-import 'package:fluram/domain/model/character_entity.dart';
+import 'package:fluram/domain/model/data_character_list.dart';
 import 'package:fluram/domain/repository/character_repository.dart';
 
 abstract class CharacterUseCase {
-  Future<List<CharacterEntity>> getAllCharacters();
+  Future<DataCharacterList> getAllCharacters();
 }
 
 class CharacterUseCaseImpl extends CharacterUseCase {
@@ -11,7 +11,7 @@ class CharacterUseCaseImpl extends CharacterUseCase {
   CharacterUseCaseImpl(this.characterRepository);
 
   @override
-  Future<List<CharacterEntity>> getAllCharacters() async {
+  Future<DataCharacterList> getAllCharacters() async {
     return await characterRepository.getAllCharacters();
   }
 }

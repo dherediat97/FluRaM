@@ -6,18 +6,23 @@ class DioClient {
 
   static final instance = DioClient._();
 
-  final Dio _dio = Dio(BaseOptions(
+  final Dio _dio = Dio(
+    BaseOptions(
       baseUrl: AppConstants.baseUrl,
-      connectTimeout: const Duration(seconds: 60),
-      receiveTimeout: const Duration(seconds: 60),
-      responseType: ResponseType.json));
+      connectTimeout: const Duration(seconds: 5000),
+      receiveTimeout: const Duration(seconds: 5000),
+      responseType: ResponseType.json,
+    ),
+  );
 
   ///Get Method
-  Future<Map<String, dynamic>> get(String path,
-      {Map<String, dynamic>? queryParameters,
-      Options? options,
-      CancelToken? cancelToken,
-      ProgressCallback? onReceiveProgress}) async {
+  Future<Map<String, dynamic>> get(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onReceiveProgress,
+  }) async {
     try {
       final Response response = await _dio.get(
         path,
@@ -36,13 +41,15 @@ class DioClient {
   }
 
   ///Post Method
-  Future<Map<String, dynamic>> post(String path,
-      {data,
-      Map<String, dynamic>? queryParameters,
-      Options? options,
-      CancelToken? cancelToken,
-      ProgressCallback? onSendProgress,
-      ProgressCallback? onReceiveProgress}) async {
+  Future<Map<String, dynamic>> post(
+    String path, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
     try {
       final Response response = await _dio.post(
         path,
@@ -63,13 +70,15 @@ class DioClient {
   }
 
   ///Put Method
-  Future<Map<String, dynamic>> put(String path,
-      {data,
-      Map<String, dynamic>? queryParameters,
-      Options? options,
-      CancelToken? cancelToken,
-      ProgressCallback? onSendProgress,
-      ProgressCallback? onReceiveProgress}) async {
+  Future<Map<String, dynamic>> put(
+    String path, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
     try {
       final Response response = await _dio.put(
         path,
@@ -90,13 +99,15 @@ class DioClient {
   }
 
   ///Delete Method
-  Future<dynamic> delete(String path,
-      {data,
-      Map<String, dynamic>? queryParameters,
-      Options? options,
-      CancelToken? cancelToken,
-      ProgressCallback? onSendProgress,
-      ProgressCallback? onReceiveProgress}) async {
+  Future<dynamic> delete(
+    String path, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
     try {
       final Response response = await _dio.delete(
         path,
