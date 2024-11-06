@@ -40,7 +40,7 @@ class _SplashPageState extends ConsumerState<SplashPage>
           ..duration = composition.duration
           ..reverse()
           ..forward().whenComplete(
-            () => context.push("/main"),
+            () => context.push("/"),
           );
       }),
     );

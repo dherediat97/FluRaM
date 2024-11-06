@@ -12,22 +12,20 @@ GoRouter goRouter(GoRouterRef ref) {
   final routerKey = GlobalKey<NavigatorState>();
 
   return GoRouter(
-    initialLocation: kIsWeb ? '/main' : '/',
+    initialLocation: kIsWeb ? '/' : '/splash',
     navigatorKey: routerKey,
     debugLogDiagnostics: true,
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SplashPage(),
-        routes: [
-          GoRoute(
-            path: 'main',
-            builder: (context, state) {
-              return const HomePage();
-            },
-          )
-        ],
+        builder: (context, state) => const HomePage(),
       ),
+      GoRoute(
+        path: '/splash',
+        builder: (context, state) {
+          return const SplashPage();
+        },
+      )
     ],
   );
 }

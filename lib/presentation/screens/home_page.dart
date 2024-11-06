@@ -1,4 +1,5 @@
 import 'package:fluram/presentation/screens/character_list.dart';
+import 'package:fluram/presentation/screens/location_list.dart';
 import 'package:fluram/presentation/view_models/app_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +12,12 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var darkMode = ref.watch(appProvider);
+    final indexBottomNavbar = ref.watch(indexBottomNavbarProvider);
 
+    final bodies = [
+      const CharacterList(),
+      const LocationList(),
+    ];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -43,24 +49,30 @@ class HomePage extends ConsumerWidget {
         child: const Icon(Icons.search),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: indexBottomNavbar,
+        onTap: (value) => ref
+            .read(indexBottomNavbarProvider.notifier)
+            .update((state) => value),
         backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 50,
         unselectedItemColor: Theme.of(context).colorScheme.onPrimary,
         selectedItemColor: Theme.of(context).colorScheme.primary,
         items: const [
           BottomNavigationBarItem(
-            tooltip: "Episodios",
             icon: Icon(Icons.tv),
-            label: "Episodios",
+            label: "Episodes",
           ),
           BottomNavigationBarItem(
-            tooltip: "Ubicaciones",
             icon: Icon(Icons.local_gas_station_outlined),
-            label: "Ubicaciones",
+            label: "Locations",
           ),
         ],
       ),
-      body: const CharacterList(),
+      body: bodies[indexBottomNavbar],
     );
   }
 }
+
+final indexBottomNavbarProvider = StateProvider<int>((ref) {
+  return 0;
+});
