@@ -1,5 +1,6 @@
 import 'package:fluram/presentation/screens/home_page.dart';
 import 'package:fluram/presentation/screens/splash_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -11,6 +12,7 @@ GoRouter goRouter(GoRouterRef ref) {
   final routerKey = GlobalKey<NavigatorState>();
 
   return GoRouter(
+    initialLocation: kIsWeb ? '/main' : '/',
     navigatorKey: routerKey,
     debugLogDiagnostics: true,
     routes: [
