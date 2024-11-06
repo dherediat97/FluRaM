@@ -1,5 +1,5 @@
 import 'package:fluram/domain/model/data_character_list.dart';
-import 'package:fluram/domain/use_case/character_list_provider.dart';
+import 'package:fluram/domain/use_case/provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
