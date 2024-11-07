@@ -1,5 +1,5 @@
-import 'package:fluram/presentation/screens/character_list.dart';
-import 'package:fluram/presentation/screens/location_list.dart';
+import 'package:fluram/presentation/screens/character_list/character_list.dart';
+import 'package:fluram/presentation/screens/location_list/location_list.dart';
 import 'package:fluram/presentation/view_models/app_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
