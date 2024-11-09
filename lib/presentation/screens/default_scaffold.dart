@@ -1,23 +1,20 @@
-import 'package:fluram/presentation/screens/character_list/home.dart';
-import 'package:fluram/presentation/screens/location_list/home.dart';
 import 'package:fluram/presentation/view_models/app_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-class HomePage extends ConsumerWidget {
-  const HomePage({
+class DefaultScaffold extends ConsumerWidget {
+  const DefaultScaffold({
     super.key,
+    required this.body,
   });
+
+  final Widget body;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var darkMode = ref.watch(appProvider);
-    final indexBottomNavbar = ref.watch(indexBottomNavbarProvider);
 
-    final bodies = [
-      const CharacterList(),
-      const LocationList(),
-    ];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -49,10 +46,17 @@ class HomePage extends ConsumerWidget {
         child: const Icon(Icons.search),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: indexBottomNavbar,
-        onTap: (value) => ref
-            .read(indexBottomNavbarProvider.notifier)
-            .update((state) => value),
+        currentIndex: 0,
+        onTap: (value) {
+          switch (value) {
+            case 0:
+              context.push("/character");
+              break;
+            case 1:
+              context.push("/location");
+              break;
+          }
+        },
         backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 50,
         unselectedItemColor: Theme.of(context).colorScheme.onPrimary,
@@ -63,16 +67,15 @@ class HomePage extends ConsumerWidget {
             label: "Episodes",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_gas_station_outlined),
+            icon: Icon(Icons.public),
             label: "Locations",
           ),
         ],
       ),
-      body: bodies[indexBottomNavbar],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: body,
+      ),
     );
   }
 }
-
-final indexBottomNavbarProvider = StateProvider<int>((ref) {
-  return 0;
-});

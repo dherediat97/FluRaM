@@ -25,7 +25,7 @@ class _CharacterListViewState extends State<CharacterListView> {
       itemBuilder: (context, index) {
         var character = widget.characterList[index];
         return InkWell(
-            onTap: () => context.push("/details/${character.id}"),
+            onTap: () => context.push("/character/${character.id}"),
             child: CharacterListItem(character: character));
       },
     );
