@@ -15,12 +15,12 @@ class CharacterEntity with _$CharacterEntity {
     required Species species,
     required String type,
     required Gender gender,
-    required LocationEntity origin,
-    required LocationEntity location,
+    LocationEntity? origin,
+    LocationEntity? location,
     required String image,
     required List<String> episode,
     required String url,
-    required DateTime created,
+    DateTime? created,
   }) = _CharacterEntity;
 
   factory CharacterEntity.fromJson(Map<String, dynamic> json) =>

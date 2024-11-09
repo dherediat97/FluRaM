@@ -1,3 +1,4 @@
+import 'package:fluram/presentation/screens/default_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class CharacterDetail extends StatelessWidget {
@@ -5,6 +6,8 @@ class CharacterDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return DefaultScaffold(
+      body: Container(),
+    );
   }
 }
