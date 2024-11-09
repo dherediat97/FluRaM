@@ -24,7 +24,7 @@ class _CharacterListItemState extends State<CharacterListItem> {
         ),
       ),
       title: Text(widget.character.name),
-      subtitle: Text(widget.character.location.name),
+      subtitle: Text(widget.character.location!.name),
     );
   }
 }

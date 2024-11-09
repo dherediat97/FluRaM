@@ -1,4 +1,4 @@
-import 'package:fluram/presentation/screens/character_list/widgets/character_list_item.dart';
+import 'package:fluram/presentation/screens/character_list/widgets/character_list_view.dart';
 import 'package:fluram/presentation/view_models/character_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,16 +21,7 @@ class _CharacterListState extends ConsumerState<CharacterList> {
         body: provider.when(
           data: (data) => SingleChildScrollView(
             child: Column(
-              children: [
-                ListView.builder(
-                  itemCount: data.results.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return CharacterListItem(character: data.results[index]);
-                  },
-                )
-              ],
+              children: [CharacterListView(characterList: data.results)],
             ),
           ),
           error: (error, stack) => Text(stack.toString()),

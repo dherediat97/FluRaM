@@ -1,5 +1,5 @@
+import 'package:fluram/presentation/screens/character_detail/home.dart';
 import 'package:fluram/presentation/screens/home_page.dart';
-import 'package:fluram/presentation/screens/splash_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,9 +22,9 @@ GoRouter goRouter(Ref ref) {
         builder: (context, state) => const HomePage(),
       ),
       GoRoute(
-        path: '/splash',
+        path: '/details/:id',
         builder: (context, state) {
-          return const SplashPage();
+          return const CharacterDetail();
         },
       )
     ],
