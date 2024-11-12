@@ -41,6 +41,31 @@ class FakeRepository implements CharacterRepository {
       ],
     );
   }
+
+  @override
+  Future<CharacterEntity> getCharacter(String id) async {
+    return CharacterEntity(
+      id: 1,
+      name: "Rick",
+      type: "",
+      url: "",
+      species: Species.Human,
+      status: Status.Alive,
+      created: DateTime.now(),
+      episode: [],
+      gender: Gender.Male,
+      location: LocationEntity(
+        id: 1,
+        name: "Earth",
+        type: "",
+        dimension: "",
+        residents: [],
+        url: "",
+        created: DateTime.now(),
+      ),
+      image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+    );
+  }
 }
 
 final repositoryProvider = Provider((ref) => FakeRepository());

@@ -1,25 +1,29 @@
-import 'package:fluram/presentation/screens/location_list/widgets/location_list_view.dart';
 import 'package:fluram/presentation/view_models/location_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LocationList extends ConsumerStatefulWidget {
-  const LocationList({super.key});
+class LocationDetail extends ConsumerStatefulWidget {
+  const LocationDetail({
+    super.key,
+    required this.id,
+  });
+
+  final String id;
 
   @override
-  ConsumerState<LocationList> createState() => _LocationListState();
+  ConsumerState<LocationDetail> createState() => _LocationDetailState();
 }
 
-class _LocationListState extends ConsumerState<LocationList> {
+class _LocationDetailState extends ConsumerState<LocationDetail> {
   @override
   Widget build(BuildContext context) {
-    var provider = ref.watch(fetchAllLocationsProvider);
+    var provider = ref.watch(fetchLocationProvider(widget.id));
 
     return Scaffold(
       body: provider.when(
         data: (data) => SingleChildScrollView(
           child: Column(
-            children: [LocationListView(locationList: data.results)],
+            children: [Text(data.name)],
           ),
         ),
         error: (error, stack) => Text(stack.toString()),
