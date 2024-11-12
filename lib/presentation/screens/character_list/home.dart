@@ -1,5 +1,4 @@
 import 'package:fluram/presentation/screens/character_list/widgets/character_list_view.dart';
-import 'package:fluram/presentation/screens/default_scaffold.dart';
 import 'package:fluram/presentation/view_models/character_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,7 +15,7 @@ class _CharacterListState extends ConsumerState<CharacterList> {
   Widget build(BuildContext context) {
     var provider = ref.watch(fetchAllCharactersProvider);
 
-    return DefaultScaffold(
+    return Scaffold(
       body: provider.when(
         data: (data) => SingleChildScrollView(
           child: Column(

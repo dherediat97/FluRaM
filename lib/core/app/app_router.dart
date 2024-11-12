@@ -1,6 +1,7 @@
 import 'package:fluram/presentation/screens/character_detail/home.dart';
 import 'package:fluram/presentation/screens/character_list/home.dart';
-import 'package:fluram/presentation/screens/location_detail/location_detail.dart';
+import 'package:fluram/presentation/screens/home_page.dart';
+import 'package:fluram/presentation/screens/location_detail/home.dart';
 import 'package:fluram/presentation/screens/location_list/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,15 +21,15 @@ GoRouter goRouter(Ref ref) {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const CharacterList(),
+        builder: (context, state) => const HomePage(),
         routes: [
           GoRoute(
             path: 'character',
             routes: [
               GoRoute(
-                path: ':id',
+                path: 'details',
                 builder: (context, state) {
-                  return const CharacterDetail();
+                  return CharacterDetail(id: state.extra as String);
                 },
               ),
             ],
@@ -40,9 +41,9 @@ GoRouter goRouter(Ref ref) {
             path: 'location',
             routes: [
               GoRoute(
-                path: ':id',
+                path: 'details',
                 builder: (context, state) {
-                  return const LocationDetail();
+                  return LocationDetail(id: state.extra as String);
                 },
               ),
             ],
