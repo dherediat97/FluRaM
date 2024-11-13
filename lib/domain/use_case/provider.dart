@@ -4,9 +4,9 @@ import 'package:fluram/infra/repository/provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 final characterProvider = Provider<CharacterUseCase>((ref) {
-  return CharacterUseCaseImpl(ref.read(charactersListProvider));
+  return CharacterUseCaseImpl(ref.watch(charactersListProvider));
 });
 
 final locationProvider = Provider<LocationUseCase>((ref) {
-  return LocationUseCaseImpl(ref.read(locationListProvider));
+  return LocationUseCaseImpl(ref.watch(locationListProvider));
 });

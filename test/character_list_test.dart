@@ -1,9 +1,6 @@
 import 'dart:io';
-
 import 'package:fluram/domain/model/character_entity.dart';
-import 'package:fluram/domain/model/data_character_list.dart';
 import 'package:fluram/domain/model/enums_character_list.dart';
-import 'package:fluram/domain/model/info_entity.dart';
 import 'package:fluram/domain/model/location_entity.dart';
 import 'package:fluram/domain/repository/character_repository.dart';
 import 'package:fluram/presentation/screens/character_list/widgets/character_list_item.dart';
@@ -13,16 +10,18 @@ import 'package:flutter_test/flutter_test.dart';
 
 class FakeRepository implements CharacterRepository {
   @override
-  Future<DataCharacterList> getAllCharacters() async {
-    return DataCharacterList(
-      info: const InfoEntity(count: 1, pages: 1, next: "", prev: ""),
-      results: [
+  Future<(int totalItems, List<CharacterEntity> items)> getAllCharacters({
+    int? page,
+  }) async {
+    return (
+      25,
+      [
         CharacterEntity(
           id: 1,
           name: "Rick",
           type: "",
           url: "",
-          species: Species.Human,
+          species: "Human",
           status: Status.Alive,
           created: DateTime.now(),
           episode: [],
@@ -49,7 +48,7 @@ class FakeRepository implements CharacterRepository {
       name: "Rick",
       type: "",
       url: "",
-      species: Species.Human,
+      species: "Human",
       status: Status.Alive,
       created: DateTime.now(),
       episode: [],
@@ -71,7 +70,7 @@ class FakeRepository implements CharacterRepository {
 final repositoryProvider = Provider((ref) => FakeRepository());
 final todoListProvider = FutureProvider((ref) async {
   final repository = ref.read(repositoryProvider);
-  return repository.getAllCharacters();
+  return repository.getAllCharacters(page: 1);
 });
 
 void main() {
@@ -90,9 +89,13 @@ void main() {
               if (todos.asData == null) {
                 return const CircularProgressIndicator();
               }
-              return ListView(
+              return GridView(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 520,
+                  mainAxisExtent: 400,
+                ),
                 children: [
-                  for (final character in todos.asData!.value.results)
+                  for (final character in todos.asData!.valueOrNull!.$2)
                     CharacterListItem(character: character)
                 ],
               );
@@ -102,13 +105,6 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-
-    // El primer frame es un estado de carga.
-    // expect(find.byType(CircularProgressIndicator), findsOneWidget);
-
-    // Re-renderiza. TodoListProvider ya debería haber obtenido todas las tareas.
-    // await tester.pump();
-
     // Sin estado de carga.
     expect(find.byType(CircularProgressIndicator), findsNothing);
 

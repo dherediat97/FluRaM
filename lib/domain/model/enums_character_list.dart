@@ -1,16 +1,15 @@
 // ignore_for_file: constant_identifier_names
 
-enum Species { Alien, Human }
-
 enum Status { Alive, Dead, unknown }
 
-enum Gender { Female, Male, unknown }
+enum Gender { Female, Male, unknown, Genderless }
 
-final speciesValues =
-    EnumValues({"Alien": Species.Alien, "Human": Species.Human});
-
-final genderValues = EnumValues(
-    {"Female": Gender.Female, "Male": Gender.Male, "unknown": Gender.unknown});
+final genderValues = EnumValues({
+  "Female": Gender.Female,
+  "Male": Gender.Male,
+  "unknown": Gender.unknown,
+  "Genderless": Gender.Genderless,
+});
 
 final statusValues = EnumValues(
     {"Alive": Status.Alive, "Dead": Status.Dead, "unknown": Status.unknown});
