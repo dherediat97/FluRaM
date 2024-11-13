@@ -12,7 +12,7 @@ class CharacterEntity with _$CharacterEntity {
     required int id,
     required String name,
     required Status status,
-    required Species species,
+    required String species,
     required String type,
     required Gender gender,
     LocationEntity? origin,

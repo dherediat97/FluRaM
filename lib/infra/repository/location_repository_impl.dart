@@ -13,8 +13,7 @@ class LocationRepositoryImpl extends LocationRepository {
       final locationList = DataLocationList.fromJson(response);
       return locationList;
     } on DioException catch (e) {
-      var error = HttpException.fromDioError(e);
-      throw error.errorMessage;
+      throw e.errorMessage;
     }
   }
 
@@ -25,8 +24,7 @@ class LocationRepositoryImpl extends LocationRepository {
       final locationList = LocationEntity.fromJson(response);
       return locationList;
     } on DioException catch (e) {
-      var error = HttpException.fromDioError(e);
-      throw error.errorMessage;
+      throw e.errorMessage;
     }
   }
 }

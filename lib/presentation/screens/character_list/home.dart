@@ -1,5 +1,5 @@
 import 'package:fluram/presentation/screens/character_list/widgets/character_list_view.dart';
-import 'package:fluram/presentation/view_models/character_notifier.dart';
+import 'package:fluram/presentation/view_models/character_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,22 +7,26 @@ class CharacterList extends ConsumerStatefulWidget {
   const CharacterList({super.key});
 
   @override
-  ConsumerState<CharacterList> createState() => _CharacterListState();
+  ConsumerState createState() => _CharacterListState();
 }
 
 class _CharacterListState extends ConsumerState<CharacterList> {
   @override
   Widget build(BuildContext context) {
-    var provider = ref.watch(fetchAllCharactersProvider);
+    // ref.listen(charactersViewModelProvider, (_, state) {
+    //   if (!state.isLoading && state.hasError) {
+    //     context.showErrorSnackBar(state.dioException.errorMessage);
+    //   }
+    // });
+    final charactersState = ref.watch(charactersViewModelProvider);
 
     return Scaffold(
-      body: provider.when(
-        data: (data) => SingleChildScrollView(
-          child: Column(
-            children: [CharacterListView(characterList: data.results)],
-          ),
-        ),
-        error: (error, stack) => Text(stack.toString()),
+      body: charactersState.when(
+        data: (data) =>
+            CharacterListView(characterList: charactersState.value ?? []),
+        error: (error, stack) {
+          return Text(stack.toString());
+        },
         loading: () => const Center(
           child: CircularProgressIndicator(),
         ),
