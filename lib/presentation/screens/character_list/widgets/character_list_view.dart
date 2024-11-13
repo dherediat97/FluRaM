@@ -28,7 +28,7 @@ class _CharacterListViewState extends ConsumerState<CharacterListView> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
-        const itemHeight = 540.0;
+        const itemHeight = 550.0;
         const itemWidth = 250.0;
         final crossCount = (width / itemWidth).ceil();
 
