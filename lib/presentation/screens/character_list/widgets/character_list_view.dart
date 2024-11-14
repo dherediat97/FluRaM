@@ -60,7 +60,7 @@ class _CharacterListViewState extends ConsumerState<CharacterListView> {
               var character = charactersState.valueOrNull![index];
               return InkWell(
                 onTap: () => context.go(
-                  '/character/details',
+                  '/characters/details',
                   extra: character.id.toString(),
                 ),
                 child: CharacterListItem(character: character),

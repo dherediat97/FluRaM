@@ -12,6 +12,11 @@ class AppTheme {
       surface: Color(0xFF020C06),
       surfaceTint: Color(0xFF08C952),
     ),
+    scrollbarTheme: const ScrollbarThemeData(
+      thumbColor: WidgetStatePropertyAll(
+        Color(0xFF08C952),
+      ),
+    ),
   );
 
   static ThemeData lightTheme = ThemeData(
@@ -23,6 +28,11 @@ class AppTheme {
       tertiary: Color(0xFF160440),
       onTertiary: Color(0xFFFFFFFF),
       surfaceTint: Color(0xFFFFFFFF),
+    ),
+    scrollbarTheme: const ScrollbarThemeData(
+      thumbColor: WidgetStatePropertyAll(
+        Color(0xFF08C952),
+      ),
     ),
   );
 }
