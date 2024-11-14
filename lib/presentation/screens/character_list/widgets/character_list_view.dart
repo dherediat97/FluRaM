@@ -46,7 +46,7 @@ class _CharacterListViewState extends ConsumerState<CharacterListView> {
             return true;
           },
           child: GridView.builder(
-            key: const PageStorageKey("characterGrid"),
+            key: const PageStorageKey('characterGrid'),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossCount,
               mainAxisSpacing: 30,
@@ -60,7 +60,7 @@ class _CharacterListViewState extends ConsumerState<CharacterListView> {
               var character = charactersState.valueOrNull![index];
               return InkWell(
                 onTap: () => context.go(
-                  "/character/details",
+                  '/character/details',
                   extra: character.id.toString(),
                 ),
                 child: CharacterListItem(character: character),

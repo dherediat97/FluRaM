@@ -18,24 +18,24 @@ class FakeRepository implements CharacterRepository {
       [
         CharacterEntity(
           id: 1,
-          name: "Rick",
-          type: "",
-          url: "",
-          species: "Human",
+          name: 'Rick',
+          type: '',
+          url: '',
+          species: 'Human',
           status: Status.Alive,
           created: DateTime.now(),
           episode: [],
           gender: Gender.Male,
           location: LocationEntity(
             id: 1,
-            name: "Earth",
-            type: "",
-            dimension: "",
+            name: 'Earth',
+            type: '',
+            dimension: '',
             residents: [],
-            url: "",
+            url: '',
             created: DateTime.now(),
           ),
-          image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+          image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
         )
       ],
     );
@@ -45,24 +45,24 @@ class FakeRepository implements CharacterRepository {
   Future<CharacterEntity> getCharacter(String id) async {
     return CharacterEntity(
       id: 1,
-      name: "Rick",
-      type: "",
-      url: "",
-      species: "Human",
+      name: 'Rick',
+      type: '',
+      url: '',
+      species: 'Human',
       status: Status.Alive,
       created: DateTime.now(),
       episode: [],
       gender: Gender.Male,
       location: LocationEntity(
         id: 1,
-        name: "Earth",
-        type: "",
-        dimension: "",
+        name: 'Earth',
+        type: '',
+        dimension: '',
         residents: [],
-        url: "",
+        url: '',
         created: DateTime.now(),
       ),
-      image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
     );
   }
 }
@@ -113,7 +113,7 @@ void main() {
       isA<CharacterListItem>()
           .having((widget) => widget.character.name, 'character.name', 'Rick')
           .having((widget) => widget.character.location!.name,
-              'character.location.name', "Earth"),
+              'character.location.name', 'Earth'),
     ]);
   });
 }

@@ -26,7 +26,7 @@ class _LocationListViewState extends State<LocationListView> {
         var location = widget.locationList[index];
         return InkWell(
             onTap: () => context.go(
-                  "/location/details",
+                  '/location/details',
                   extra: location.id.toString(),
                 ),
             child: LocationListItem(location: location));

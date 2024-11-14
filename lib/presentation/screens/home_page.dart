@@ -60,11 +60,11 @@ class HomePage extends ConsumerWidget {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.tv),
-            label: "Episodes",
+            label: 'Episodes',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.public),
-            label: "Locations",
+            label: 'Locations',
           ),
         ],
       ),

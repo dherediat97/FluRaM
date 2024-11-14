@@ -34,7 +34,7 @@ class DioClient {
       if (response.statusCode == 200) {
         return response.data;
       }
-      throw "something went wrong";
+      throw 'something went wrong';
     } catch (e) {
       rethrow;
     }
@@ -63,7 +63,7 @@ class DioClient {
       if (response.statusCode == 200 || response.statusCode == 201) {
         return response.data;
       }
-      throw "something went wrong";
+      throw 'something went wrong';
     } catch (e) {
       rethrow;
     }
@@ -92,7 +92,7 @@ class DioClient {
       if (response.statusCode == 200) {
         return response.data;
       }
-      throw "something went wrong";
+      throw 'something went wrong';
     } catch (e) {
       rethrow;
     }
@@ -119,7 +119,7 @@ class DioClient {
       if (response.statusCode == 204) {
         return response.data;
       }
-      throw "something went wrong";
+      throw 'something went wrong';
     } catch (e) {
       rethrow;
     }
