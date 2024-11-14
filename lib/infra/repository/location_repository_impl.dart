@@ -9,7 +9,7 @@ class LocationRepositoryImpl extends LocationRepository {
   @override
   Future<DataLocationList> getAllLocations() async {
     try {
-      final response = await DioClient.instance.get("location");
+      final response = await DioClient.instance.get('location');
       final locationList = DataLocationList.fromJson(response);
       return locationList;
     } on DioException catch (e) {
@@ -20,7 +20,7 @@ class LocationRepositoryImpl extends LocationRepository {
   @override
   Future<LocationEntity> getLocation(String id) async {
     try {
-      final response = await DioClient.instance.get("location/$id");
+      final response = await DioClient.instance.get('location/$id');
       final locationList = LocationEntity.fromJson(response);
       return locationList;
     } on DioException catch (e) {

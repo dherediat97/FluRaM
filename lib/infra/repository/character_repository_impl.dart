@@ -12,7 +12,7 @@ class CharacterRepositoryImpl extends CharacterRepository {
     int? page,
   }) async {
     try {
-      final response = await DioClient.instance.get("character/?page=$page");
+      final response = await DioClient.instance.get('character/?page=$page');
       if (response.isEmpty) {
         return (0, <CharacterEntity>[]);
       }
@@ -29,7 +29,7 @@ class CharacterRepositoryImpl extends CharacterRepository {
   @override
   Future<CharacterEntity> getCharacter(String id) async {
     try {
-      final response = await DioClient.instance.get("character/$id");
+      final response = await DioClient.instance.get('character/$id');
       final characterList = CharacterEntity.fromJson(response);
       return characterList;
     } on DioException catch (e) {

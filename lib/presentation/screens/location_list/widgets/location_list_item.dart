@@ -24,7 +24,7 @@ class _LocationListItem extends State<LocationListItem> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Dimension: "),
+              const Text('Dimension: '),
               Text(widget.location.dimension!),
             ],
           ),
@@ -32,7 +32,7 @@ class _LocationListItem extends State<LocationListItem> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Location type: "),
+              const Text('Location type: '),
               Text(widget.location.type!),
             ],
           ),

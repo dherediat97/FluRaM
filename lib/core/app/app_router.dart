@@ -22,37 +22,33 @@ GoRouter goRouter(Ref ref) {
       GoRoute(
         path: '/',
         builder: (context, state) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/characters',
+        builder: (context, state) => const CharacterList(),
         routes: [
           GoRoute(
-            path: 'character',
-            routes: [
-              GoRoute(
-                path: 'details',
-                builder: (context, state) {
-                  return CharacterDetail(id: state.extra as String);
-                },
-              ),
-            ],
+            path: 'details',
             builder: (context, state) {
-              return const CharacterList();
+              return CharacterDetail(id: state.extra as String);
             },
           ),
-          GoRoute(
-            path: 'location',
-            routes: [
-              GoRoute(
-                path: 'details',
-                builder: (context, state) {
-                  return LocationDetail(id: state.extra as String);
-                },
-              ),
-            ],
-            builder: (context, state) {
-              return const LocationList();
-            },
-          )
         ],
       ),
+      GoRoute(
+        path: '/locations',
+        builder: (context, state) {
+          return const LocationList();
+        },
+        routes: [
+          GoRoute(
+            path: 'details',
+            builder: (context, state) {
+              return LocationDetail(id: state.extra as String);
+            },
+          ),
+        ],
+      )
     ],
   );
 }
