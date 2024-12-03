@@ -1,6 +1,6 @@
 import 'package:fluram/presentation/screens/common/bottom_tabs.dart';
 import 'package:fluram/presentation/screens/common/top_app_bar.dart';
-import 'package:fluram/presentation/view_models/character_notifier.dart';
+import 'package:fluram/presentation/notifiers/character_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

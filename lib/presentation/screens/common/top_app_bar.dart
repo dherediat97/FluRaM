@@ -1,4 +1,4 @@
-import 'package:fluram/presentation/view_models/app_notifier.dart';
+import 'package:fluram/presentation/notifiers/app_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
