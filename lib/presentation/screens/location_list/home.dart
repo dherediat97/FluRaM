@@ -1,7 +1,7 @@
 import 'package:fluram/presentation/screens/common/bottom_tabs.dart';
 import 'package:fluram/presentation/screens/common/top_app_bar.dart';
 import 'package:fluram/presentation/screens/location_list/widgets/location_list_view.dart';
-import 'package:fluram/presentation/view_models/location_notifier.dart';
+import 'package:fluram/presentation/notifiers/location_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

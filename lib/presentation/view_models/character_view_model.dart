@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:fluram/domain/model/character_entity.dart';
 import 'package:fluram/domain/use_case/character_use_case.dart';
 import 'package:fluram/domain/use_case/provider.dart';
-import 'package:fluram/presentation/view_models/pagination_notifier.dart';
+import 'package:fluram/presentation/notifiers/pagination_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final charactersViewModelProvider =
