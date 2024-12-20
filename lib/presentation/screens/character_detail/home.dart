@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluram/presentation/screens/common/bottom_tabs.dart';
 import 'package:fluram/presentation/screens/common/top_app_bar.dart';
 import 'package:fluram/presentation/notifiers/character_notifier.dart';
@@ -32,7 +33,7 @@ class _CharacterDetailState extends ConsumerState<CharacterDetail> {
               children: [
                 Hero(
                   tag: character.id,
-                  child: Image.network(character.image),
+                  child: CachedNetworkImage(imageUrl: character.image),
                 ),
                 Text(character.name),
               ],

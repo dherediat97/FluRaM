@@ -26,7 +26,7 @@
             "request": "launch",
             "flutterMode": "debug",
             "type": "dart",
-            "args": ["--web-port", "5050"]
+            "args": ["--web-port", "5050", "--web-renderer", "html"]
         },
     ]
 }
