@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluram/domain/model/character_entity.dart';
 import 'package:fluram/domain/model/enums_character_list.dart';
 import 'package:flutter/material.dart';
@@ -38,8 +39,12 @@ class _CharacterListItemState extends State<CharacterListItem> {
             ),
             child: Hero(
               tag: widget.character.id,
-              child: Image.network(
-                widget.character.image,
+              child: CachedNetworkImage(
+                imageUrl: widget.character.image,
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.contain,
               ),
             ),
